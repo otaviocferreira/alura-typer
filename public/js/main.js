@@ -12,3 +12,21 @@ campoDigitacao.on("input", function() {
     $("#contador-palavras").text(qtdPalavras);
     $("#contador-caracteres").text(qtdCaracteres);
 });
+
+var tempoRestante = $("#tempo-restante");
+var tempoInicial = 3;
+
+tempoRestante.text(tempoInicial);
+
+campoDigitacao.one("focus", function() {
+    var cronometroID = setInterval(function() {
+        tempoInicial--;
+        tempoRestante.text(tempoInicial);
+
+        if (tempoInicial == 0) {
+            campoDigitacao.attr("disabled", true);
+            clearInterval(cronometroID);
+        }
+        
+    }, 1000);
+});
