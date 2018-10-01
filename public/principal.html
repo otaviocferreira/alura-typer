@@ -4,27 +4,41 @@
 <head>
     <meta charset="UTF-8">
     <title>Alura Typer</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/libs/materialize.min.css">
+    <link rel="stylesheet" href="css/libs/google-fonts.css">
 </head>
 
 <body>
-    <h1>Alura Typer</h1>
+    <div class="container">
+        <center>
+            <h1>Alura Typer</h1>
 
-    <p class="frase">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    </p>
+            <p class="frase">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 
-    <ul class="informacoes">
-        <li><span id="qtd-palavras"></span> palavras</li>
-        <li><span id="tempo-restante"></span> segundos</li>
-    </ul>
+            <ul class="informacoes center">
+                <li>
+                    <i class="small material-icons icones">description</i>
+                    <span id="qtd-palavras"></span> palavras
+                </li>
+                <li>
+                    <i class="small material-icons icones">query_builder</i>
+                    <span id="tempo-restante"></span> segundos
+                </li>
+            </ul>
+        </center>
 
-    <textarea class="campo-digitacao" rows="8" cols="40"></textarea>
-    <button id="botao-reiniciar">Reiniciar jogo</button>
-
-    <ul class="informacoes">
-        <li><span id="contador-palavras">0</span> palavras</li>
-        <li><span id="contador-caracteres">0</span> caracteres</li>
-    </ul>
+        <textarea class="campo-digitacao" rows="8" cols="40"></textarea>
+        
+        <a id="botao-reiniciar" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">restore</i></a>
+        
+        <center>
+            <ul class="informacoes">
+                <li><span id="contador-palavras">0</span> palavras</li>
+                <li><span id="contador-caracteres">0</span> caracteres</li>
+            </ul>
+        </center>
+    </div>
 
     <script src="js/jquery.js"></script>
     <script src="js/main.js"></script>
