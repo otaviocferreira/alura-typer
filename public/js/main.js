@@ -1,32 +1,65 @@
-var frase = $(".frase").text();
-var qtdPalavras = $("#qtd-palavras");
-var palavras = frase.trim().split(" ");
-qtdPalavras.text(palavras.length);
-
 var campoDigitacao = $(".campo-digitacao");
-campoDigitacao.on("input", function() {
-    var conteudo = campoDigitacao.val();
-    var qtdPalavras = conteudo.split(/\S+/).length - 1;
-    var qtdCaracteres = conteudo.length;
-
-    $("#contador-palavras").text(qtdPalavras);
-    $("#contador-caracteres").text(qtdCaracteres);
-});
-
-var tempoRestante = $("#tempo-restante");
 var tempoInicial = 3;
 
-tempoRestante.text(tempoInicial);
+$(
+    function() {
+        contarPalavrasFraseInicial();
+        contabilizarPalavrasECaracteres();
+        iniciarCronometro();
+        criarEventoBotaoReiniciar();
+    }
+);
 
-campoDigitacao.one("focus", function() {
-    var cronometroID = setInterval(function() {
-        tempoInicial--;
-        tempoRestante.text(tempoInicial);
+function contarPalavrasFraseInicial() {
+    var frase = $(".frase").text();
+    var qtdPalavras = $("#qtd-palavras");
+    var palavras = frase.trim().split(" ");
+    qtdPalavras.text(palavras.length);
+}
 
-        if (tempoInicial == 0) {
-            campoDigitacao.attr("disabled", true);
-            clearInterval(cronometroID);
+function contabilizarPalavrasECaracteres() {
+    campoDigitacao.on("input", function() {
+        var conteudo = campoDigitacao.val();
+        var qtdPalavras = conteudo.split(/\S+/).length - 1;
+        var qtdCaracteres = conteudo.length;
+    
+        $("#contador-palavras").text(qtdPalavras);
+        $("#contador-caracteres").text(qtdCaracteres);
+    });
+}
+
+function iniciarCronometro() {
+    var campoTempoRestante = $("#tempo-restante");
+    var tempoRestante = tempoInicial;
+
+    campoTempoRestante.text(tempoRestante);
+    
+    campoDigitacao.one("focus", function() {
+        var cronometroID = setInterval(function() {
+            tempoRestante--;
+            campoTempoRestante.text(tempoRestante);
+    
+            if (tempoRestante == 0) {
+                campoDigitacao.attr("disabled", true);
+                clearInterval(cronometroID);
+            }
+            
+        }, 1000);
+    });
+}
+
+function criarEventoBotaoReiniciar() {
+    var botao = $("#botao-reiniciar");
+    
+    botao.click(
+        function() {
+            $("#contador-palavras").text("0");
+            $("#contador-caracteres").text("0");
+
+            campoDigitacao.attr("disabled", false);
+            campoDigitacao.val("");
+
+            iniciarCronometro();
         }
-        
-    }, 1000);
-});
+    );
+}
