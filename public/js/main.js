@@ -70,6 +70,8 @@ function criarEventoBotaoReiniciar() {
     
     botao.click(
         function() {
+            gravarPlacar();
+
             $("#contador-palavras").text("0");
             $("#contador-caracteres").text("0");
 
@@ -85,11 +87,23 @@ function criarEventoBotaoReiniciar() {
     );
 }
 
+function gravarPlacar() {
+    var qtdCaracteres = $("#contador-caracteres").text();
+    var qtdPalavras = $("#contador-palavras").text();
+    var usuario = "Otavio";
+    var botaoRemover = "<a href='#' class='botao-remover'><i class='small material-icons'>delete</i></a>";
+
+    var corpoTabela = $("#placar").find("tbody");
+
+    corpoTabela.prepend("<tr>" +
+                            "<td>" + usuario + "</td>" +
+                            "<td>" + qtdPalavras + "</td>" +
+                            "<td>" + qtdCaracteres + "</td>" +
+                            "<td>" + botaoRemover + "</td>" +
+                        "</tr>");
+}
+
 function desativarCampoDigitacao() {
     campoDigitacao.attr("disabled", true);
     campoDigitacao.addClass("campo-desativado");
-}
-
-function validarTextoDigitado() {
-
 }
