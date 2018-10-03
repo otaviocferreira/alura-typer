@@ -21,3 +21,23 @@ function criarEventoBotaoReiniciar() {
         }
     );
 }
+
+function criarEventoBotaoPlacar() {
+    var botao = $("#botao-placar");
+    
+    botao.click(
+        function() {
+            var placar = $("#placar");
+
+            placar.fadeToggle(100);  
+
+            var posicaoPlacar = placar.offset().top;
+        
+            console.log(posicaoPlacar + "px");  
+
+            $("html").animate({
+                scrollTop: 200
+            }, 500)
+        }
+    );
+}

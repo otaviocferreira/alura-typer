@@ -17,11 +17,7 @@ function montarLinha(usuario, qtdPalavras, qtdCaracteres) {
 
     var botaoRemover = $("<a>").attr("href", "#").addClass("botao-remover");
 
-    botaoRemover.click(function(event) {
-        event.preventDefault();
-
-        $(this).parent().parent().remove();
-    });
+    associarEventoRemoçao(botaoRemover);
 
     var iconeRemover = $("<i>").addClass("small").addClass("material-icons").text("delete");
 
@@ -34,4 +30,19 @@ function montarLinha(usuario, qtdPalavras, qtdCaracteres) {
     linha.append(campoRemover);
 
     return linha;
+}
+
+function associarEventoRemoçao(botaoRemover) {
+    botaoRemover.click(function(event) {
+        event.preventDefault();
+
+        var linha = $(this).parent().parent();
+
+        linha.fadeOut(500);
+        
+        setTimeout(function() {
+            linha.remove();
+        }, 500);
+        
+    });
 }

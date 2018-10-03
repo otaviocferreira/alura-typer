@@ -4,6 +4,7 @@ $(
         contabilizarPalavrasECaracteres();
         iniciarCronometro();
         criarEventoBotaoReiniciar();
+        criarEventoBotaoPlacar();
         validarDigitacao();
     }
 );

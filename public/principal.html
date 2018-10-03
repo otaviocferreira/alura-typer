@@ -29,9 +29,12 @@
         </center>
 
         <textarea class="campo-digitacao" rows="8" cols="40"></textarea>
-        
-        <a id="botao-reiniciar" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">restore</i></a>
-        
+
+        <div id="botoes">
+                <a id="botao-reiniciar" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">restore</i></a>
+                <a id="botao-placar" class="btn-floating btn-large waves-effect waves-light green"><i class="material-icons">assignment</i></a>
+        </div>
+                
         <center>
             <ul class="informacoes">
                 <li><span id="contador-palavras">0</span> palavras</li>
@@ -39,21 +42,23 @@
             </ul>
         </center>
 
-        <h3 class="center">Placar</h3>
+        <div id="placar">
+            <h3 class="center">Placar</h3>
 
-        <table id="placar" class="centered">
-            <thead>
-                <tr>
-                    <th>Nome</th>
-                    <th>Qtd palavras</th>
-                    <th>Qtd caracteres</th>
-                    <th>Ações</th>
-                </tr>
-            </thead>
-            <tbody>
+            <table class="centered">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Qtd palavras</th>
+                        <th>Qtd caracteres</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
 
-            </tbody>
-        </table>
+                </tbody>
+            </table>
+        </div>
     </div>
 
     <script src="js/jquery.js"></script>
