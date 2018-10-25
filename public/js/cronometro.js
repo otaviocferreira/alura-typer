@@ -1,4 +1,4 @@
-var tempoInicial = 3;
+var tempoInicial = 15;
 
 function iniciarCronometro() {    
     var campoTempoRestante = $("#tempo-restante");
@@ -19,4 +19,9 @@ function iniciarCronometro() {
             
         }, 1000);
     });
+}
+
+function atualizarTempo(novoTempo) {
+    tempoInicial = novoTempo;
+    $("#tempo-restante").text(novoTempo);
 }

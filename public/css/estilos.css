@@ -31,3 +31,42 @@ body {
 #placar {
     display: none;
 }
+
+#erro {
+    display: none;
+    color: red;
+}
+
+#spinner {
+    display: none;
+}
+
+#campo-frase-id{
+    width: 50px;
+    margin-left: 20px;
+}
+
+#spinner-placar {
+    display: none;
+    width: 60px;
+}
+
+#botao-sync, #spinner-placar {
+    float: right;
+}
+
+#frases {
+    margin: 20px 5px;
+    text-align: center;
+}
+
+.slick-prev:before, .slick-next:before {
+    color: black !important;
+}
+
+#select-usuarios {
+    width: 300px;
+    display: inline-block;
+    margin-left: 100px;
+    vertical-align: middle;
+}

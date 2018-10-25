@@ -4,8 +4,11 @@ function criarEventoBotaoReiniciar() {
     var botao = $("#botao-reiniciar");
     
     botao.click(
-        function() {
-            gravarPlacar();
+        function() {            
+            var qtdPalavras = $("#contador-palavras").text();
+            var usuario = "Otavio";
+
+            gravarPlacar(usuario, qtdPalavras);
 
             $("#contador-palavras").text("0");
             $("#contador-caracteres").text("0");
@@ -32,8 +35,6 @@ function criarEventoBotaoPlacar() {
             placar.fadeToggle(100);  
 
             var posicaoPlacar = placar.offset().top;
-        
-            console.log(posicaoPlacar + "px");  
 
             $("html").animate({
                 scrollTop: 200
